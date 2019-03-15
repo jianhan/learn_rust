@@ -8,12 +8,20 @@ fn main() {
 
     makes_copy(x);
     println!("{}", x);
-    let s1 = gives_ownership();         // gives_ownership moves its return
-                                        // value into s1
+    let s1 = gives_ownership(); // gives_ownership moves its return
+                                // value into s1
 
-    let s2 = String::from("hello");     // s2 comes into scope
+    let s2 = String::from("hello"); // s2 comes into scope
 
-    let s3 = takes_and_gives_back(s2);  // s2 is moved into
+    let s3 = takes_and_gives_back(s2); // s2 is moved into
+
+    let mut ss = String::from("hello world");
+
+    let word = first_word(&ss); // word will get the value 5
+
+    // ss.clear();
+
+    println!("{} -- {} --", word, ss);
 }
 
 fn takes_ownership(some_string: String) {
@@ -45,4 +53,28 @@ fn takes_and_gives_back(a_string: String) -> String {
     // scope
 
     a_string // a_string is returned and moves out to the calling function
+}
+
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+
+    s.len()
+}
+
+fn first_word_string_slice(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
 }
