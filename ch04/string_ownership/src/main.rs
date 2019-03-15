@@ -19,9 +19,17 @@ fn main() {
 
     let word = first_word(&ss); // word will get the value 5
 
-    // ss.clear();
+    // ss.clear(); this will cause bug
 
     println!("{} -- {} --", word, ss);
+
+    let mut s7 = String::from("hello world");
+
+    let word7 = first_word_string_slice(&s7);
+
+    s7.clear(); // compiling error!
+
+    println!("the first word is: {}", word7);
 }
 
 fn takes_ownership(some_string: String) {
