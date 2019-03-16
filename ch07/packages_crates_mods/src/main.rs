@@ -21,6 +21,8 @@ mod plant {
     }
 }
 
+use packages_crates_mods::sound::instrument;
+
 fn main() {
     let mut v = plant::Vegetable::new("squash");
 
@@ -31,4 +33,8 @@ fn main() {
     // println!("The ID is {}", v.id);
      let order1 = menu::Appetizer::Soup;
     let order2 = menu::Appetizer::Salad;
+
+    instrument::clarinet();
+    instrument::clarinet();
+    instrument::clarinet();
 }

@@ -1,6 +1,6 @@
-mod sound {
-    mod instrument {
-        fn clarinet() {
+pub mod sound {
+    pub mod instrument {
+        pub fn clarinet() {
             super::breathe_in();
         }
     }
