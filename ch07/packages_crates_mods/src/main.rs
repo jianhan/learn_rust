@@ -1,15 +1,25 @@
-mod sound {
-    mod instrument {
-        fn clarinet() {
-            // Function body code goes here
+mod plant {
+    pub struct Vegetable {
+        pub name: String,
+        id: i32,
+    }
+
+    impl Vegetable {
+        pub fn new(name: &str) -> Vegetable {
+            Vegetable {
+                name: String::from(name),
+                id: 1,
+            }
         }
     }
 }
 
 fn main() {
-    // Absolute path
-    crate::sound::instrument::clarinet();
+    let mut v = plant::Vegetable::new("squash");
 
-    // Relative path
-    sound::instrument::clarinet();
+    v.name = String::from("butternut squash");
+    println!("{} are delicious", v.name);
+
+    // The next line won't compile if we uncomment it:
+    // println!("The ID is {}", v.id);
 }
