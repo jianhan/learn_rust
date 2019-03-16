@@ -1,3 +1,10 @@
+mod menu {
+    pub enum Appetizer {
+        Soup,
+        Salad,
+    }
+}
+
 mod plant {
     pub struct Vegetable {
         pub name: String,
@@ -22,4 +29,6 @@ fn main() {
 
     // The next line won't compile if we uncomment it:
     // println!("The ID is {}", v.id);
+     let order1 = menu::Appetizer::Soup;
+    let order2 = menu::Appetizer::Salad;
 }
